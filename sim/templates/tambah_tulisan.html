@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block konten %}
+<!-- <h1>Posting...!!!</h1> -->
+
+<form method="POST">
+   <div class="container"><!--ini container ini berguna agar isi webnya di tengan -->
+      <div class="jumbotron"><!--jumbroton ini akan di edit fi file style.css yang ada di dalam forder static dan di dalam folder css-->
+         
+         {{form.hidden_tag()}}
+         <div class="form-group">
+            {{form.judul.label(class="form-control-label")}}
+            {% if form.judul.errors %}
+         {{form.judul(class="form-control is-invalid")}}
+         <div class="invalid-feedback">
+            {% for error in form.judul.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+         </div>
+      
+         {% else %}
+         {{form.judul(class="form-control")}}
+         {% endif %}</div>
+      
+         <div class="form-group">
+            {{form.kategori.label(class="form-control-label")}}
+            {% if form.kategori.errors %}
+            {{form.kategori(class="form-control is-invalid")}}
+             <div class="invalid-feedback">
+            {% for error in form.kategori.errors %}
+                 <span>{{error}}</span>
+            {% endfor %}
+             </div>
+      
+            {% else %}
+            {{form.kategori(class="form-control")}}
+         
+              {% endif %}
+           </div>
+
+         <!-- isi -->
+         {{form.hidden_tag()}}
+         <div class="form-group">
+            {{form.isi.label(class="form-control-label")}}
+            {% if form.isi.errors %}
+         {{form.isi(class="form-control is-invalid")}}
+         <div class="invalid-feedback">
+            {% for error in form.isi.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+         </div>
+      
+         {% else %}
+         {{form.isi(class="form-control")}}
+         {% endif %}</div>
+
+         
+      
+      
+
+   <div class="form-group">
+      
+      {{form.submit(class="btn btn-primary")}}<!--ini juga sama kyak di atas-->
+   </div>
+  
+   
+
+   </div>
+</div>
+
+</form>
+
+
+{% endblock %}
